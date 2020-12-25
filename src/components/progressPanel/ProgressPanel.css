@@ -1,12 +1,14 @@
-.Footer{
+.ProgressPanel{
   position: relative;
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 10px 30px -15px;
   border: 0px solid #48929C;
+  padding: 5px 5px;
   margin: 10px auto;
   width: 100%;
+  min-width: 20%;
   height: 20%;
   text-align: center;
-  background-color: #48929B;
+  line-height: 0.6;
 }
