@@ -1,8 +1,9 @@
 import {CountdownCircleTimer} from "react-countdown-circle-timer";
+import "./Timer.css";
 
 export default function Timer({size, duration, divisor, initialRemainingTime}){
   return(
-    <span className="Timer">
+    <div className="Timer">
       <CountdownCircleTimer
         isPlaying
         duration={duration}
@@ -17,8 +18,8 @@ export default function Timer({size, duration, divisor, initialRemainingTime}){
           return [true, 0] // repeat animation in 1.5 seconds
         }}
       >
-        {({ remainingTime }) => Math.ceil(remainingTime/divisor)}
+        {({ remainingTime }) => Math.ceil(remainingTime/divisor) + " hrs left"}
       </CountdownCircleTimer>
-    </span>
+    </div>
   );
 }

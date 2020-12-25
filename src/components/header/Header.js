@@ -1,9 +1,10 @@
 import "./Header.css";
 
 export default function Header(){
+
   return(
     <div className="Header">
-      <h1> Track how you spend your day! </h1>
+      <h1> Track your day </h1>
     </div>
   );
 }
