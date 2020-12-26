@@ -2,13 +2,13 @@ import ApexCharts from "apexcharts";
 import {useState, useEffect} from "react";
 import "./Gauge.css";
 
-export default function Gauge(){
+export default function Gauge({healthProgress, workProgress, playProgress, loveProgress}){
   const [options, setOptions] = useState({
       chart: {
         height: 300,
         type: "radialBar",
       },
-      series: [67, 84, 97, 61],
+      series: [loveProgress, playProgress, workProgress, healthProgress],
       plotOptions: {
         radialBar: {
           dataLabels: {
@@ -21,21 +21,20 @@ export default function Gauge(){
       },
       labels: ['Love', 'Play', 'Work', 'Health']
     });
-  const [count, setCount] = useState(0);
 
-  useEffect(() => {
-    console.log("in use effect");
-  }, []);
+  useEffect( async () => {
+    options.series = [loveProgress, playProgress, workProgress, healthProgress];
+    console.log(options.series);
+    await setOptions(options);
+    const timer = setTimeout(() => {
+      console.log('Waiting for state to update');
+    }, 2000);
+  }, [healthProgress, workProgress, playProgress, loveProgress]);
 
   const position = document.querySelector(".Gauge");
   const chart = new ApexCharts(position, options);
-  let rendered = false;
 
-  if (position != null && count < 1 && !rendered){
-    console.log(position);
-    console.log("Should only render once");
-    setCount(count + 1);
-    rendered = true;
+  if (position != null){
     chart.render();
     var chartList = document.querySelectorAll(".Gauge div");
     chartList[1].remove();
