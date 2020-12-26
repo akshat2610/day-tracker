@@ -1,15 +1,15 @@
 import "./InfoCard.css";
+import Fade from "react-reveal";
 
-export default function InfoCard({healthStars, workStars, playStars, loveStars}){
-  const total = Number(healthStars) + Number(workStars) + Number(playStars) + Number(loveStars);
-
+export default function InfoCard({healthProgress, workProgress, playProgress, loveProgress}){
   return(
-    <div className="InfoCard">
-      <p> Health stars: {healthStars} </p>
-      <p> Work stars: {workStars} </p>
-      <p> Play stars: {playStars} </p>
-      <p> Love stars: {loveStars} </p>
-      <p> Total: {total} </p>
-    </div>
+    <Fade right duration={5000} distance="500px">
+      <div className="InfoCard">
+        <p> Health progress: {healthProgress} </p>
+        <p> Work progress: {workProgress} </p>
+        <p> Play progress: {playProgress} </p>
+        <p> Love progress: {loveProgress} </p>
+      </div>
+    </Fade>
   );
 }

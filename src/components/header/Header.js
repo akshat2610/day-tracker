@@ -1,10 +1,10 @@
 import "./Header.css";
+import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 
-export default function Header(){
-
+export default function Header({visible, setVisible}){
   return(
     <div className="Header">
-      <h1> Track your day </h1>
+      <ToggleSwitch visible={visible} setVisible={setVisible} />
     </div>
   );
 }
