@@ -33,3 +33,4 @@ export default function Timer({size=125,
     </Fade>
   );
 }
+//{({ remainingTime }) => label + (label=="" ? "" : ": ") + Math.ceil(remainingTime/divisor)}

@@ -20,8 +20,7 @@ export default function InfoCard({healthHrs, workHrs, playHrs, loveHrs}){
         <p> Work: {workHrs} hrs</p>
         <p> Play: {playHrs} hrs</p>
         <p> Love: {loveHrs} hrs</p>
-        <p id="totalWorkload"> Total: {total} hrs</p>
-        {checkColor()}
+        <p id="totalWorkload"> Total: {total} hrs {checkColor()}</p>
       </div>
     </Fade>
   );

@@ -9,9 +9,9 @@ export default function Display({isPlanLocked,
                                   setPlayActive,
                                   setLoveActive}){
 
-  const [isStart, setStart] = useState(false);
   const [activeTask, setActiveTask] = useState("");
   const [category, setCategory] = useState("");
+  const [isStart, setStart] = useState(false);
 
   function handleSubmit(event){
     event.preventDefault();
@@ -20,7 +20,6 @@ export default function Display({isPlanLocked,
       alert("Lock the hours first!");
       return;
     }
-
 
     setActiveTask(document.getElementById("task").value);
     setCategory(document.getElementById("category").value);
@@ -47,30 +46,21 @@ export default function Display({isPlanLocked,
         break;
     }
 
-    //hide everything here
-    //need ids for form and taskForm
     let formContainer = document.querySelector(".Form");
     let taskFormContainer = document.querySelector(".TaskForm");
-    let inputFields = document.querySelectorAll("input");
 
     if (formContainer != null) {
       if (!isStart){
         formContainer.style.display = "none";
         taskFormContainer.style.display = "none";
+        document.getElementById("task").disabled = true;
+        document.getElementById("category").disabled = true;
       }
       else{
         formContainer.style.display = "inline-block";
         taskFormContainer.style.display = "inline-block";
-      }
-    }
-    if (inputFields != null){
-      for (let i = 0; i < inputFields.length; i++){
-        if (!isStart) {
-          inputFields[i].style.readonly = false;
-        }
-        else{
-          inputFields[i].style.readonly = true;
-        }
+        document.getElementById("task").disabled = false;
+        document.getElementById("category").disabled = false;
       }
     }
 
@@ -83,7 +73,7 @@ export default function Display({isPlanLocked,
           <form  onSubmit={handleSubmit}>
             <div>
               <label for="task"> Active Task </label>
-              <input id="task" type="text"/>
+              <input id="task" type="text" required/>
             </div>
             <div>
               <label for="category"> Category </label>
@@ -94,11 +84,9 @@ export default function Display({isPlanLocked,
                 <option value="Love">Love</option>
               </select>
             </div>
-            <input type="submit" value={isStart ? "Stop" : "Start"}/>
+            <input id="startBtn" type="submit" value={isStart ? "Stop" : "Start"}/>
           </form>
         </div>
       </Fade>
     );
-
-
 }
