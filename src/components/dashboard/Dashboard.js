@@ -15,9 +15,6 @@ export default function Dashboard(){
   const [loveHrs, setLoveHrs] = useState(4);
   const [isPlanLocked, setPlanLocked] = useState(false);
 
-  const [activeTask, setActiveTask] = useState("");
-  const [category, setCategory] = useState("");
-
   const [isHealthActive, setHealthActive] = useState(false);
   const [isWorkActive, setWorkActive] = useState(false);
   const [isPlayActive, setPlayActive] = useState(false);
@@ -32,8 +29,6 @@ export default function Dashboard(){
                   ['#F7B801', 0.33],
                   ['#A30000', 0.33],
                 ]}
-          size={125}
-          isPlaying={true}
           duration={86400}
           divisor={3600}
           initialRemainingTime={86400 - numSecondsGone}
@@ -43,11 +38,8 @@ export default function Dashboard(){
           setWorkHrs={setWorkHrs}
           setPlayHrs={setPlayHrs}
           setLoveHrs={setLoveHrs}
+          isPlanLocked={isPlanLocked}
           setPlanLocked={setPlanLocked}
-          activeTask={activeTask}
-          category={category}
-          setActiveTask={setActiveTask}
-          setCategory={setCategory}
           setHealthActive={setHealthActive}
           setWorkActive={setWorkActive}
           setPlayActive={setPlayActive}

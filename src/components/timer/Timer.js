@@ -3,7 +3,15 @@ import "./Timer.css";
 import Fade from "react-reveal";
 import {useEffect} from "react";
 
-export default function Timer({size, duration, divisor=1, initialRemainingTime, rotation, isPlaying, label="", colors="#000000", width=12}){
+export default function Timer({size=125,
+                                duration,
+                                divisor=1,
+                                initialRemainingTime,
+                                rotation,
+                                label="",
+                                colors="#000000",
+                                width=12,
+                                isPlaying=true}){
   useEffect(()=>{
     console.log("Duration changed: " + duration);
   }, [duration]);
@@ -13,7 +21,7 @@ export default function Timer({size, duration, divisor=1, initialRemainingTime, 
       <div className="Timer">
         <CountdownCircleTimer
           onComplete={() => {
-            return [true, 1000000] // repeat animation in 1.5 seconds
+            return [true, 0];
           }}
           isPlaying={isPlaying}
           rotation={rotation}
@@ -23,9 +31,11 @@ export default function Timer({size, duration, divisor=1, initialRemainingTime, 
           size = {size}
           strokeWidth = {width}
         >
-          {({ remainingTime }) => label + (label=="" ? "" : ": ") + Math.ceil(remainingTime/divisor)}
+        {({remainingTime}) => "this is a test"}
         </CountdownCircleTimer>
       </div>
     </Fade>
   );
 }
+
+//{({ remainingTime }) => label + (label=="" ? "" : ": ") + Math.ceil(remainingTime/divisor)}

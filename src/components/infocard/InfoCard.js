@@ -13,7 +13,6 @@ export default function InfoCard({healthHrs, workHrs, playHrs, loveHrs}){
     }
   }
 
-
   return(
     <Fade bottom duration={5000} distance="500px">
       <div className="InfoCard">

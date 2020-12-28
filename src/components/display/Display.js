@@ -3,29 +3,31 @@ import Fade from "react-reveal";
 import Countdown from "react-countdown"
 import {useState} from "react";
 
-export default function Display({activeTask,
-                                  category,
-                                  setActiveTask,
-                                  setCategory,
+export default function Display({isPlanLocked,
                                   setHealthActive,
                                   setWorkActive,
                                   setPlayActive,
                                   setLoveActive}){
 
   const [isStart, setStart] = useState(false);
+  const [activeTask, setActiveTask] = useState("");
+  const [category, setCategory] = useState("");
 
   function handleSubmit(event){
     event.preventDefault();
 
-    const chosenCategory = document.getElementById("category").value;
+    if (!isPlanLocked){
+      alert("Lock the hours first!");
+      return;
+    }
+
 
     setActiveTask(document.getElementById("task").value);
-    setCategory(chosenCategory);
+    setCategory(document.getElementById("category").value);
 
-    switch (chosenCategory) {
+    switch (document.getElementById("category").value) {
       case "Health":
         setHealthActive(!isStart);
-
         break;
 
       case "Work":
