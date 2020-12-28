@@ -2,26 +2,22 @@ import "./Dashboard.css";
 import Timer from "../timer/Timer";
 import ControlCenter from "../controlCenter/ControlCenter";
 import InfoCenter from "../infoCenter/InfoCenter";
-import Gauge from "../gauge/Gauge";
 
-export default function Dashboard({setHealthPomodoros,
-                                    setWorkPomodoros,
-                                    setPlayPomodoros,
-                                    setLovePomodoros,
-                                    incrementHealthPomodorosCompleted,
-                                    incrementWorkPomodorosCompleted,
-                                    incrementPlayPomodorosCompleted,
-                                    incrementLovePomodorosCompleted,
-                                    start,
+export default function Dashboard({healthHrs,
+                                    workHrs,
+                                    playHrs,
+                                    loveHrs,
+                                    isPlanLocked,
+                                    setHealthHrs,
+                                    setWorkHrs,
+                                    setPlayHrs,
+                                    setLoveHrs,
+                                    setPlanLocked,
                                     activeTask,
                                     category,
                                     setStart,
                                     setActiveTask,
-                                    setCategory,
-                                    loveProgress,
-                                    playProgress,
-                                    workProgress,
-                                    healthProgress}){
+                                    setCategory}){
 
   const today = new Date();
   const numSecondsGone = today.getHours()*3600 + today.getMinutes()*60 + today.getSeconds();
@@ -29,33 +25,41 @@ export default function Dashboard({setHealthPomodoros,
   return(
     <div className="Dashboard">
       <Timer
+          width={8}
+          colors={[
+                  ['#004777', 0.33],
+                  ['#F7B801', 0.33],
+                  ['#A30000', 0.33],
+                ]}
           size={125}
           duration={86400}
           divisor={3600}
           initialRemainingTime={86400 - numSecondsGone}
       />
       <ControlCenter
-          setHealthPomodoros={setHealthPomodoros}
-          setWorkPomodoros={setWorkPomodoros}
-          setPlayPomodoros={setPlayPomodoros}
-          setLovePomodoros={setLovePomodoros}
-          incrementHealthPomodorosCompleted={incrementHealthPomodorosCompleted}
-          incrementWorkPomodorosCompleted={incrementWorkPomodorosCompleted}
-          incrementPlayPomodorosCompleted={incrementPlayPomodorosCompleted}
-          incrementLovePomodorosCompleted={incrementLovePomodorosCompleted}
-          start={start}
+          setHealthHrs={setHealthHrs}
+          setWorkHrs={setWorkHrs}
+          setPlayHrs={setPlayHrs}
+          setLoveHrs={setLoveHrs}
+          setPlanLocked={setPlanLocked}
           activeTask={activeTask}
           category={category}
           setStart={setStart}
           setActiveTask={setActiveTask}
           setCategory={setCategory}
       />
-      <Gauge
-          loveProgress={loveProgress}
-          playProgress={playProgress}
-          workProgress={workProgress}
-          healthProgress={healthProgress}
-      />
+     <h2> Remaining work </h2>
+      <InfoCenter isPlanLocked={isPlanLocked} healthHrs={healthHrs} workHrs={workHrs} playHrs={playHrs} loveHrs={loveHrs}/>
     </div>
   );
 }
+
+
+/*
+<Gauge
+    loveProgress={loveProgress}
+    playProgress={playProgress}
+    workProgress={workProgress}
+    healthProgress={healthProgress}
+/>
+*/

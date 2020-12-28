@@ -3,48 +3,23 @@ import Fade from "react-reveal";
 import Countdown from "react-countdown"
 import {useState} from "react";
 
-export default function Display({incrementHealthPomodorosCompleted,
-                                  incrementWorkPomodorosCompleted,
-                                  incrementPlayPomodorosCompleted,
-                                  incrementLovePomodorosCompleted,
-                                  start,
-                                  activeTask,
+export default function Display({activeTask,
                                   category,
-                                  setStart,
                                   setActiveTask,
-                                  setCategory}){
+                                  setCategory,
+                                  setPlanLocked}){
 
+  const [isStart, setStart] = useState(false);
 
   function handleSubmit(event){
     event.preventDefault();
-    setStart(true);
+    setStart(!isStart);
     setActiveTask(document.getElementById("task").value);
     setCategory(document.getElementById("category").value);
     console.log("User trying to change display");
   }
-  
-  function incrementByCategory(){
-    switch(category){
-      case "Health":
-        incrementHealthPomodorosCompleted();
-        break;
-      case "Work":
-        incrementWorkPomodorosCompleted();
-        break;
-      case "Play":
-        incrementPlayPomodorosCompleted();
-        break;
-      case "Love":
-        incrementLovePomodorosCompleted();
-        break;
-      default:
-        console.log("Invalid category")
-    }
-    setStart(false);
-  }
 
-  if (!start){
-    return (
+  return (
       <Fade bottom duration={2000} distance="500px">
         <div className="Display">
           <form  onSubmit={handleSubmit}>
@@ -61,20 +36,11 @@ export default function Display({incrementHealthPomodorosCompleted,
                 <option value="Love">Love</option>
               </select>
             </div>
-            <input type="submit" value="Begin"/>
+            <input type="submit" value={isStart ? "Stop" : "Start"}/>
           </form>
         </div>
       </Fade>
     );
-  }
-  else{
-    return (
-      <div className="Display" id="focus">
-        <h1> {activeTask} </h1>
-        <h5> <Countdown date={Date.now() + 1000} onComplete={incrementByCategory}/> </h5>
-      </div>
-    );
-  }
 
 
 }

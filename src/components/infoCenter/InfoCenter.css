@@ -8,6 +8,18 @@
   width: 95%;
   height: auto;
   text-align: center;
-  display: flex;
+  display: flow-root;
   justify-content: space-between;
+}
+
+
+@media (max-width: 768px) {
+  .InfoCenter {
+    display: block;
+    justify-content: space-around;
+  }
+  .InfoCenter .Timer{
+    width: 62% ;
+    display: inline-block;
+  }
 }

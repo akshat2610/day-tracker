@@ -4,15 +4,11 @@ import TaskForm from "../taskForm/TaskForm";
 import Display from "../display/Display";
 import "./ControlCenter.css"
 
-export default function ControlCenter({setHealthPomodoros,
-                                        setWorkPomodoros,
-                                        setPlayPomodoros,
-                                        setLovePomodoros,
-                                        incrementHealthPomodorosCompleted,
-                                        incrementWorkPomodorosCompleted,
-                                        incrementPlayPomodorosCompleted,
-                                        incrementLovePomodorosCompleted,
-                                        start,
+export default function ControlCenter({setHealthHrs,
+                                        setWorkHrs,
+                                        setPlayHrs,
+                                        setLoveHrs,
+                                        setPlanLocked,
                                         activeTask,
                                         category,
                                         setStart,
@@ -21,20 +17,14 @@ export default function ControlCenter({setHealthPomodoros,
   return(
       <div className="ControlCenter">
         <Form
-            setHealthPomodoros={setHealthPomodoros}
-            setWorkPomodoros={setWorkPomodoros}
-            setPlayPomodoros={setPlayPomodoros}
-            setLovePomodoros={setLovePomodoros}
+            setHealthHrs={setHealthHrs}
+            setWorkHrs={setWorkHrs}
+            setPlayHrs={setPlayHrs}
+            setLoveHrs={setLoveHrs}
         />
         <Display
-            incrementHealthPomodorosCompleted={incrementHealthPomodorosCompleted}
-            incrementWorkPomodorosCompleted={incrementWorkPomodorosCompleted}
-            incrementPlayPomodorosCompleted={incrementPlayPomodorosCompleted}
-            incrementLovePomodorosCompleted={incrementLovePomodorosCompleted}
-            start={start}
             activeTask={activeTask}
             category={category}
-            setStart={setStart}
             setActiveTask={setActiveTask}
             setCategory={setCategory}
         />
@@ -43,4 +33,4 @@ export default function ControlCenter({setHealthPomodoros,
   );
 }
 
-//<InfoCard healthPomodoros={healthPomodoros} workPomodoros={workPomodoros} playPomodoros={playPomodoros} lovePomodoros={lovePomodoros}/>
+//<InfoCard healthHrs={healthHrs} workHrs={workHrs} playHrs={playHrs} loveHrs={loveHrs}/>
