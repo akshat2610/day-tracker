@@ -22,19 +22,17 @@ export default function Gauge({healthProgress, workProgress, playProgress, loveP
       labels: ['Love', 'Play', 'Work', 'Health']
     });
 
-  useEffect( async () => {
+  useEffect(()=> {
     options.series = [loveProgress, playProgress, workProgress, healthProgress];
     console.log(options.series);
-    await setOptions(options);
-    const timer = setTimeout(() => {
-      console.log('Waiting for state to update');
-    }, 2000);
+    setOptions(options);
   }, [healthProgress, workProgress, playProgress, loveProgress]);
 
   const position = document.querySelector(".Gauge");
   const chart = new ApexCharts(position, options);
 
   if (position != null){
+    console.log("render called...");
     chart.render();
     var chartList = document.querySelectorAll(".Gauge div");
     chartList[1].remove();
