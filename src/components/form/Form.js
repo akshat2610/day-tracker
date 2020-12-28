@@ -9,6 +9,15 @@ export default function Form({setHealthHrs, setWorkHrs, setPlayHrs, setLoveHrs, 
     evt.preventDefault();
     setLock(!lock);
     setPlanLocked(!lock);
+
+
+    let rangeInputFields = document.querySelectorAll(".Form input");
+    if (rangeInputFields != null){
+      for (let i = 0; i < rangeInputFields.length - 1; i++){
+        if (!lock){ rangeInputFields[i].disabled = true; }
+        else { rangeInputFields[i].disabled = false; }
+      }
+    }
   }
 
   return (
