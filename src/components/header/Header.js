@@ -1,5 +1,4 @@
 import "./Header.css";
-import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 
 export default function Header({visible=true, setVisible}){
   return(
@@ -8,4 +7,3 @@ export default function Header({visible=true, setVisible}){
     </div>
   );
 }
-//<ToggleSwitch visible={visible} setVisible={setVisible} />
