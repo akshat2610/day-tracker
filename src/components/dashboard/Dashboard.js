@@ -3,33 +3,25 @@ import Timer from "../timer/Timer";
 import ControlCenter from "../controlCenter/ControlCenter";
 import InfoCenter from "../infoCenter/InfoCenter";
 import InfoCard from "../infocard/InfoCard";
+import {useState} from "react";
 
-export default function Dashboard({healthHrs,
-                                    workHrs,
-                                    playHrs,
-                                    loveHrs,
-                                    isPlanLocked,
-                                    setHealthHrs,
-                                    setWorkHrs,
-                                    setPlayHrs,
-                                    setLoveHrs,
-                                    setPlanLocked,
-                                    activeTask,
-                                    category,
-                                    setStart,
-                                    setActiveTask,
-                                    setCategory,
-                                    isHealthActive,
-                                    isWorkActive,
-                                    isPlayActive,
-                                    isLoveActive,
-                                    setHealthActive,
-                                    setWorkActive,
-                                    setPlayActive,
-                                    setLoveActive}){
-
+export default function Dashboard(){
   const today = new Date();
   const numSecondsGone = today.getHours()*3600 + today.getMinutes()*60 + today.getSeconds();
+
+  const [healthHrs, setHealthHrs] = useState(4);
+  const [workHrs, setWorkHrs] = useState(4);
+  const [playHrs, setPlayHrs] = useState(4);
+  const [loveHrs, setLoveHrs] = useState(4);
+  const [isPlanLocked, setPlanLocked] = useState(false);
+
+  const [activeTask, setActiveTask] = useState("");
+  const [category, setCategory] = useState("");
+
+  const [isHealthActive, setHealthActive] = useState(false);
+  const [isWorkActive, setWorkActive] = useState(false);
+  const [isPlayActive, setPlayActive] = useState(false);
+  const [isLoveActive, setLoveActive] = useState(false);
 
   return(
     <div className="Dashboard">
@@ -54,7 +46,6 @@ export default function Dashboard({healthHrs,
           setPlanLocked={setPlanLocked}
           activeTask={activeTask}
           category={category}
-          setStart={setStart}
           setActiveTask={setActiveTask}
           setCategory={setCategory}
           setHealthActive={setHealthActive}

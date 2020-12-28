@@ -11,7 +11,6 @@ export default function ControlCenter({setHealthHrs,
                                         setPlanLocked,
                                         activeTask,
                                         category,
-                                        setStart,
                                         setActiveTask,
                                         setCategory,
                                         setHealthActive,
@@ -20,13 +19,7 @@ export default function ControlCenter({setHealthHrs,
                                         setLoveActive}){
   return(
       <div className="ControlCenter">
-        <Form
-            setHealthHrs={setHealthHrs}
-            setWorkHrs={setWorkHrs}
-            setPlayHrs={setPlayHrs}
-            setLoveHrs={setLoveHrs}
-            setPlanLocked={setPlanLocked}
-        />
+        <TaskForm />
         <Display
             activeTask={activeTask}
             category={category}
@@ -37,7 +30,13 @@ export default function ControlCenter({setHealthHrs,
             setPlayActive={setPlayActive}
             setLoveActive={setLoveActive}
         />
-        <TaskForm />
+        <Form
+            setHealthHrs={setHealthHrs}
+            setWorkHrs={setWorkHrs}
+            setPlayHrs={setPlayHrs}
+            setLoveHrs={setLoveHrs}
+            setPlanLocked={setPlanLocked}
+        />
       </div>
   );
 }
