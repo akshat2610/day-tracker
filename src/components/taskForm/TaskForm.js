@@ -5,7 +5,7 @@ export default function TaskForm(){
   return (
     <Fade right duration={2000} distance="500px">
       <form  className="TaskForm">
-        <p> One thing that will habe the biggest impact on </p>
+        <p> What's on your mind? </p>
         <div>
           <label for="health"> Health </label>
           <input id="health" type="text" size="auto"/>

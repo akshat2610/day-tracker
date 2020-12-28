@@ -18,6 +18,11 @@ function App() {
   const [activeTask, setActiveTask] = useState("");
   const [category, setCategory] = useState("");
 
+  const [isHealthActive, setHealthActive] = useState(false);
+  const [isWorkActive, setWorkActive] = useState(false);
+  const [isPlayActive, setPlayActive] = useState(false);
+  const [isLoveActive, setLoveActive] = useState(false);
+
   return (
     <div className="App">
       <Header />
@@ -36,6 +41,14 @@ function App() {
           category={category}
           setActiveTask={setActiveTask}
           setCategory={setCategory}
+          isHealthActive={isHealthActive}
+          isWorkActive={isWorkActive}
+          isPlayActive={isPlayActive}
+          isLoveActive={isLoveActive}
+          setHealthActive={setHealthActive}
+          setWorkActive={setWorkActive}
+          setPlayActive={setPlayActive}
+          setLoveActive={setLoveActive}
         />
       <Footer />
     </div>
