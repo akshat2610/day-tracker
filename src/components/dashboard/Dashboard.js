@@ -2,6 +2,7 @@ import "./Dashboard.css";
 import Timer from "../timer/Timer";
 import ControlCenter from "../controlCenter/ControlCenter";
 import InfoCenter from "../infoCenter/InfoCenter";
+import InfoCard from "../infocard/InfoCard";
 
 export default function Dashboard({healthHrs,
                                     workHrs,
@@ -17,7 +18,15 @@ export default function Dashboard({healthHrs,
                                     category,
                                     setStart,
                                     setActiveTask,
-                                    setCategory}){
+                                    setCategory,
+                                    isHealthActive,
+                                    isWorkActive,
+                                    isPlayActive,
+                                    isLoveActive,
+                                    setHealthActive,
+                                    setWorkActive,
+                                    setPlayActive,
+                                    setLoveActive}){
 
   const today = new Date();
   const numSecondsGone = today.getHours()*3600 + today.getMinutes()*60 + today.getSeconds();
@@ -32,6 +41,7 @@ export default function Dashboard({healthHrs,
                   ['#A30000', 0.33],
                 ]}
           size={125}
+          isPlaying={true}
           duration={86400}
           divisor={3600}
           initialRemainingTime={86400 - numSecondsGone}
@@ -47,9 +57,23 @@ export default function Dashboard({healthHrs,
           setStart={setStart}
           setActiveTask={setActiveTask}
           setCategory={setCategory}
+          setHealthActive={setHealthActive}
+          setWorkActive={setWorkActive}
+          setPlayActive={setPlayActive}
+          setLoveActive={setLoveActive}
       />
      <h2> Remaining work </h2>
-      <InfoCenter isPlanLocked={isPlanLocked} healthHrs={healthHrs} workHrs={workHrs} playHrs={playHrs} loveHrs={loveHrs}/>
+     <InfoCenter
+          healthHrs={healthHrs}
+          workHrs={workHrs}
+          playHrs={playHrs}
+          loveHrs={loveHrs}
+          isPlanLocked={isPlanLocked}
+          isHealthActive={isHealthActive}
+          isWorkActive={isWorkActive}
+          isPlayActive={isPlayActive}
+          isLoveActive={isLoveActive}
+      />
     </div>
   );
 }

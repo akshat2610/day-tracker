@@ -7,15 +7,41 @@ export default function Display({activeTask,
                                   category,
                                   setActiveTask,
                                   setCategory,
-                                  setPlanLocked}){
+                                  setHealthActive,
+                                  setWorkActive,
+                                  setPlayActive,
+                                  setLoveActive}){
 
   const [isStart, setStart] = useState(false);
 
   function handleSubmit(event){
     event.preventDefault();
-    setStart(!isStart);
     setActiveTask(document.getElementById("task").value);
     setCategory(document.getElementById("category").value);
+
+    switch (document.getElementById("category").value) {
+      case "Health":
+        setHealthActive(!isStart);
+        break;
+
+      case "Work":
+        setWorkActive(!isStart);
+        break;
+
+      case "Play":
+        setPlayActive(!isStart);
+        break;
+
+      case "Love":
+        setLoveActive(!isStart);
+        break;
+
+      default:
+        console.log("Some error in display.js");
+        break;
+    }
+
+    setStart(!isStart);
     console.log("User trying to change display");
   }
 
