@@ -4,11 +4,11 @@
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 10px 30px -15px;
   border: 0px solid #595959;
-  margin: 10px auto;
+  margin: 10px auto;;
   width: 95%;
   height: auto;
   text-align: center;
-  display: subgrid;
+  display: inline;
   justify-content: space-between;
 }
 
@@ -20,6 +20,6 @@
   }
   .InfoCenter .Timer{
     width: 60%;
-    display: inline-block;
+    display: inline-flex;
   }
 }

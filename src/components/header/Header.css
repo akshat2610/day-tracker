@@ -4,8 +4,9 @@
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 10px 30px -15px;
   border: 0px solid #595959;
-  margin: 5px auto;
-  width: 98%;
+  padding: 10px 10px;
+  margin: 1% 3% 3% 1%;
   height: auto;
+  width: 97%;
   text-align: center;
 }

@@ -45,7 +45,7 @@ export default function Dashboard(){
           setPlayActive={setPlayActive}
           setLoveActive={setLoveActive}
       />
-     <h2> Remaining work </h2>
+     <h2> {isPlanLocked ? "Remaining work" : "Total work"} </h2>
      <InfoCenter
           healthHrs={healthHrs}
           workHrs={workHrs}
