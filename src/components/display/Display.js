@@ -16,12 +16,16 @@ export default function Display({activeTask,
 
   function handleSubmit(event){
     event.preventDefault();
-    setActiveTask(document.getElementById("task").value);
-    setCategory(document.getElementById("category").value);
 
-    switch (document.getElementById("category").value) {
+    const chosenCategory = document.getElementById("category").value;
+
+    setActiveTask(document.getElementById("task").value);
+    setCategory(chosenCategory);
+
+    switch (chosenCategory) {
       case "Health":
         setHealthActive(!isStart);
+
         break;
 
       case "Work":
@@ -41,8 +45,34 @@ export default function Display({activeTask,
         break;
     }
 
+    //hide everything here
+    //need ids for form and taskForm
+    let formContainer = document.querySelector(".Form");
+    let taskFormContainer = document.querySelector(".TaskForm");
+    let inputFields = document.querySelectorAll("input");
+
+    if (formContainer != null) {
+      if (!isStart){
+        formContainer.style.display = "none";
+        taskFormContainer.style.display = "none";
+      }
+      else{
+        formContainer.style.display = "inline-block";
+        taskFormContainer.style.display = "inline-block";
+      }
+    }
+    if (inputFields != null){
+      for (let i = 0; i < inputFields.length; i++){
+        if (!isStart) {
+          inputFields[i].style.readonly = false;
+        }
+        else{
+          inputFields[i].style.readonly = true;
+        }
+      }
+    }
+
     setStart(!isStart);
-    console.log("User trying to change display");
   }
 
   return (
