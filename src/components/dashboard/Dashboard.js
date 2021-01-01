@@ -32,6 +32,7 @@ export default function Dashboard(){
           duration={86400}
           divisor={3600}
           initialRemainingTime={86400 - numSecondsGone}
+          label="Hrs left: "
       />
       <ControlCenter
           setHealthHrs={setHealthHrs}
